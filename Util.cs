@@ -1,5 +1,7 @@
 ﻿using LiveSplit.DebugSpew;
 using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
 
 public class TimedTraceListener : DefaultTraceListener
 {
@@ -10,6 +12,23 @@ public class TimedTraceListener : DefaultTraceListener
 
     public override void WriteLine(string message)
     {
-        DebugSpewComponent.SpewWindow.boxDebugSpew.AppendText(message + "\r\n");
+        var box = DebugSpewComponent.SpewWindow.boxDebugSpew;
+        message = message.Replace("\n", "\r\n");
+        if (!DebugSpewComponent.SpewWindow.AutoScroll)
+        {
+            int selStart = box.SelectionStart;
+            int selLen = box.SelectionLength;
+            int firstDispIndex = box.GetCharIndexFromPosition(new Point(3, 3));
+
+            box.Suspend();
+            box.AppendText(message + "\r\n");
+            box.Resume();
+
+            box.Select(firstDispIndex, 0);
+            box.ScrollToCaret();
+            box.Select(selStart, selLen);
+        }
+        else
+            box.AppendText(message + "\r\n");
     }
 }

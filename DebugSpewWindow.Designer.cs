@@ -33,6 +33,7 @@ namespace LiveSplit.DebugSpew
             this.butClear = new System.Windows.Forms.Button();
             this.butExport = new System.Windows.Forms.Button();
             this.chkOnTop = new System.Windows.Forms.CheckBox();
+            this.chkAutoScroll = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // boxDebugSpew
@@ -76,11 +77,23 @@ namespace LiveSplit.DebugSpew
             this.chkOnTop.UseVisualStyleBackColor = true;
             this.chkOnTop.CheckedChanged += new System.EventHandler(this.chkOnTop_CheckedChanged);
             // 
+            // chkAutoScroll
+            // 
+            this.chkAutoScroll.AutoSize = true;
+            this.chkAutoScroll.Location = new System.Drawing.Point(116, 419);
+            this.chkAutoScroll.Name = "chkAutoScroll";
+            this.chkAutoScroll.Size = new System.Drawing.Size(77, 17);
+            this.chkAutoScroll.TabIndex = 4;
+            this.chkAutoScroll.Text = "Auto Scroll";
+            this.chkAutoScroll.UseVisualStyleBackColor = true;
+            this.chkAutoScroll.CheckedChanged += new System.EventHandler(this.chkAutoScroll_CheckedChanged);
+            // 
             // DebugSpewWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 450);
+            this.Controls.Add(this.chkAutoScroll);
             this.Controls.Add(this.chkOnTop);
             this.Controls.Add(this.butExport);
             this.Controls.Add(this.butClear);
@@ -101,5 +114,6 @@ namespace LiveSplit.DebugSpew
         private System.Windows.Forms.Button butClear;
         private System.Windows.Forms.Button butExport;
         private System.Windows.Forms.CheckBox chkOnTop;
+        private System.Windows.Forms.CheckBox chkAutoScroll;
     }
 }

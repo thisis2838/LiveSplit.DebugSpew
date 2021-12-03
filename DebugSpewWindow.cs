@@ -21,6 +21,8 @@ namespace LiveSplit.DebugSpew
             bool onTop = state.LayoutSettings == null ? false : state.LayoutSettings.AlwaysOnTop;
             TopMost = onTop;
             chkOnTop.Checked = onTop;
+            AutoScroll = true;
+            chkAutoScroll.Checked = true;
         }
 
         private void butClear_Click(object sender, EventArgs e)
@@ -58,6 +60,11 @@ namespace LiveSplit.DebugSpew
             butExport.Location = new Point(butClear.Location.X - 81, butY);
             chkOnTop.Location = new Point(chkOnTop.Location.X, butY + 4);
             boxDebugSpew.Size = new Size(this.Size.Width - 40, this.Size.Height - 92);
+        }
+
+        private void chkAutoScroll_CheckedChanged(object sender, EventArgs e)
+        {
+            AutoScroll = chkAutoScroll.Checked;
         }
     }
 }

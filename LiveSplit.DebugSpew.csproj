@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContolExtensions.cs" />
     <Compile Include="DebugSpewFactory.cs" />
     <Compile Include="DebugSpewWindow.cs">
       <SubType>Form</SubType>
