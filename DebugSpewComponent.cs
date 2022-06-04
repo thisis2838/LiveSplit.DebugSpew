@@ -14,12 +14,10 @@ namespace LiveSplit.DebugSpew
     {
         private LiveSplitState _state;
         public static DebugSpewWindow SpewWindow;
-        void state_OnReset(object sender, TimerPhase t) { }
 
         public DebugSpewComponent(LiveSplitState state)
         {
             _state = state;
-            _state.OnReset += state_OnReset;
             Settings = new DebugSpewSettings();
             SpewWindow = new DebugSpewWindow(state);
             SpewWindow.Show();
@@ -64,11 +62,16 @@ namespace LiveSplit.DebugSpew
 
         public void Dispose()
         {
-            _state.OnReset -= state_OnReset;
-            SpewWindow.Close();
-            SpewWindow.Dispose();
-            Settings.Dispose();
             Debug.Listeners.Remove(TimedTraceListener.Instance);
+            
+            if (!SpewWindow.IsDisposed)
+            {
+                SpewWindow.Close();
+                SpewWindow.Dispose();
+            }
+
+            if (!Settings.IsDisposed)
+                Settings.Dispose();
         }
     }
 }

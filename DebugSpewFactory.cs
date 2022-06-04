@@ -18,39 +18,24 @@ namespace LiveSplit.DebugSpew
             get { return "Debug Spew Viewer"; }
         }
 
-        public string Description
-        {
-            get { return ""; }
-        }
+        public string Description => "";
 
-        public ComponentCategory Category
-        {
-            get { return ComponentCategory.Information; }
-        }
+        public ComponentCategory Category => ComponentCategory.Information;
 
         public IComponent Create(LiveSplitState state)
         {
             return new DebugSpewComponent(state);
         }
 
-        public string UpdateName
-        {
-            get { return this.ComponentName; }
-        }
+        public string UpdateName => this.ComponentName;
 
-        public string UpdateURL
-        {
-            get { return null; }
-        }
+        public string UpdateURL => null;
 
         public Version Version
         {
-            get { return Version.Parse("1.0.0"); }
+            get { return Version.Parse("1.2.0"); }
         }
 
-        public string XMLURL
-        {
-            get { return null; }
-        }
+        public string XMLURL => null;
     }
 }

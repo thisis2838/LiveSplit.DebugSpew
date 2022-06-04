@@ -13,6 +13,10 @@ public class TimedTraceListener : DefaultTraceListener
     public override void WriteLine(string message)
     {
         var box = DebugSpewComponent.SpewWindow.boxDebugSpew;
+
+        if (box == null || box.IsDisposed)
+            return;
+
         message = message.Replace("\n", "\r\n");
         if (!DebugSpewComponent.SpewWindow.AutoScroll)
         {

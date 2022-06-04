@@ -53,15 +53,6 @@ namespace LiveSplit.DebugSpew
             this.TopMost = chkOnTop.Checked;
         }
 
-        private void OnResize(object sender, EventArgs e)
-        {
-            int butY = Size.Height - 74;
-            butClear.Location = new Point(Size.Width - 103, butY);
-            butExport.Location = new Point(butClear.Location.X - 81, butY);
-            chkOnTop.Location = new Point(chkOnTop.Location.X, butY + 4);
-            boxDebugSpew.Size = new Size(this.Size.Width - 40, this.Size.Height - 92);
-        }
-
         private void chkAutoScroll_CheckedChanged(object sender, EventArgs e)
         {
             AutoScroll = chkAutoScroll.Checked;
